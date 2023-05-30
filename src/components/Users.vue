@@ -17,12 +17,16 @@
             <button type="button" class="btn btn-primary border-2 p-1" @click="clearJSON">Clear JSON</button>
           </form>
 
-          <ul>
-            <li class="border-2 p-1 mt-2 mb-2" v-for="user in users" :key="user.id">
-              {{ user.name }} ({{ user.email }})
-              <button @click="deleteUser(user.id)" class="btn btn-danger text-red-400">Delete</button>
-            </li>
-          </ul>
+          <div class="mt-3">
+            <draggable v-model="users" :options="dragOptions" item-key="id">
+              <template #item="{ element, index }">
+                <li class="border-2 p-1 mt-2 mb-2 cursor-grab">
+                  {{ element.name }} ({{ element.email }})
+                  <button @click="deleteUser(index)" class="btn btn-danger text-red-400">Delete</button>
+                </li>
+              </template>
+            </draggable>
+          </div>
         </div>
         <div class="w-full md:w-1/2 px-4 mt-3">
           <button class="btn btn-primary border-2 p-1" @click="copyJSON">Copy All JSON</button>
@@ -36,14 +40,20 @@
     <div v-if="showComponent" class="bg-indigo-900 text-center py-4 lg:px-4 fixed top-0 left-0 w-full">
       <div class="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
         <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3">✅</span>
-        <span class="font-semibold mr-2 text-left flex-auto">json copied successfully</span>
+        <span class="font-semibold mr-2 text-left flex-auto">JSON copied successfully</span>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import draggable from 'vuedraggable'
+
 export default {
+  components: {
+    draggable
+  },
+
   data() {
     return {
       users: [],
@@ -51,7 +61,10 @@ export default {
         name: '',
         email: ''
       },
-      showComponent: false
+      showComponent: false,
+      dragOptions: {
+        handle: '.drag-handle'
+      }
     }
   },
 
@@ -125,5 +138,11 @@ export default {
   padding: 10px;
   font-family: monospace;
   white-space: pre-wrap;
+}
+
+.drag-handle {
+  cursor: move;
+  display: inline-block;
+  padding: 0 4px;
 }
 </style>
