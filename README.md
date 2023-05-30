@@ -11,6 +11,7 @@ Features:
 - User listing
 - Adding new users
 - Deleting users
+- Draggable users (json object is also updated 🚀)
 - Viewing and copying user data in JSON format
 
 ## Technologies
@@ -20,3 +21,4 @@ The project utilizes the following technologies:
 - Vue 3
 - Vite
 - Tailwind CSS
+- vuedraggable
