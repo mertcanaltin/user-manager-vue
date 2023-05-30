@@ -1,4 +1,4 @@
-# UserJson
+# User Manager Vue
 
 This project is an example of a user management system built using Vue 3 and Vite.
 
