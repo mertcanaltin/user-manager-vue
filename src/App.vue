@@ -1,11 +1,9 @@
 <script setup>
 import Users from './components/Users.vue'
-import DeleteUser from './components/Editor/DeleteUser.vue';
 </script>
 
 <template>
   <Users msg="Vite + Vue" />
-  <DeleteUser/>
 </template>
 
 <style scoped>
