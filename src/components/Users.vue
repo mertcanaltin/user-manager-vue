@@ -33,7 +33,12 @@
       </div>
     </div>
 
-
+    <div v-if="showComponent" class="bg-indigo-900 text-center py-4 lg:px-4 fixed top-0 left-0 w-full">
+      <div class="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
+        <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3">✅</span>
+        <span class="font-semibold mr-2 text-left flex-auto">json copied successfully</span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -45,7 +50,8 @@ export default {
       newUser: {
         name: '',
         email: ''
-      }
+      },
+      showComponent: false
     }
   },
 
@@ -72,20 +78,16 @@ export default {
     },
 
     addUser() {
-      // Generate a new unique ID for the user
       const newUserId = this.users.length + 1
 
-      // Create a new user object with the entered data and generated ID
       const newUser = {
         id: newUserId,
         name: this.newUser.name,
         email: this.newUser.email
       }
 
-      // Add the new user to the users array
       this.users.push(newUser)
 
-      // Reset the input fields
       this.newUser.name = ''
       this.newUser.email = ''
     },
@@ -106,6 +108,11 @@ export default {
       el.select()
       document.execCommand('copy')
       document.body.removeChild(el)
+
+      this.showComponent = true
+      setTimeout(() => {
+        this.showComponent = false
+      }, 2000)
     }
   }
 }
