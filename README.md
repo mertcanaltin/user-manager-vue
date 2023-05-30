@@ -1,21 +1,22 @@
-# Vue 3 + Vite
+# User Manager Vue
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This project is an example of a user management system built using Vue 3 and Vite.
 
-While this project uses Vue.js, Vite supports many popular JS frameworks. [See all the supported frameworks](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+## About the Project
 
-## Deploy Your Own
+In this project, a simple interface is provided to list users, add new users, delete users, and view user data in JSON format.
 
-Deploy your own Vite project with Vercel.
+Features:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/vite&template=vite)
+- User listing
+- Adding new users
+- Deleting users
+- Viewing and copying user data in JSON format
 
-_Live Example: https://vite-vue-template.vercel.app_
+## Technologies
 
-### Deploying From Your Terminal
+The project utilizes the following technologies:
 
-You can deploy your new Vite project with a single command from your terminal using [Vercel CLI](https://vercel.com/download):
-
-```shell
-$ vercel
-```
+- Vue 3
+- Vite
+- Tailwind CSS
